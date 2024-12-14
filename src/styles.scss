@@ -1,1 +1,15 @@
-/* You can add global styles to this file, and also import other style files */
+@use "./sass/fonts.scss";
+
+$black: #151515;
+
+* {
+    font-family: pnu;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    direction: rtl;
+    background-color: $black;
+}
