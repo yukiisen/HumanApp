@@ -1,15 +1,17 @@
 @use "./sass/fonts.scss";
 
-$black: #151515;
+$dark: #151515;
+$light: #e2e1e1;
 
 * {
     font-family: pnu;
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    color: $light;
 }
 
 body {
     direction: rtl;
-    background-color: $black;
+    background-color: $dark;
 }
