@@ -1,0 +1,21 @@
+@use '../../styles/mixins.scss' as *;
+@use '../../styles/variables.scss' as *;
+
+.counter {
+    border: 3px solid $primary;
+    border-radius: 50%;
+    aspect-ratio: 1/1;
+
+    margin: 8% { top: 0px };
+
+    @include centered;
+    flex-direction: column;
+
+    h1:first-child {
+        font-family: KacstTitle;
+    }
+
+    h1:last-child {
+        color: $accent;
+    }
+}
