@@ -38,6 +38,7 @@ export class MentalStateComponent {
 
     ngOnInit () {
         this.mentalStateList = Object.entries(this.mentalStateMap);
+        this.value.next(Object.keys(this.mentalStateMap)[this.selected]);
     }
 
     handleClick (checked: string) {

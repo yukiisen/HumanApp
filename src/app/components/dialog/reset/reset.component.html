@@ -1,7 +1,7 @@
 <div class="container" [style.transform]="visible? 'translateY(0%)' : 'translateY(100%)'" (click)="divClick()">
     <h1>إعادة تعيين العداد</h1>
-    <app-mental-state></app-mental-state>
-    <h3>الوقت التقريبي للحادثة (اختياري):<input type="datetime-local"></h3>
-    <app-mental-state [map]="accidentTypes" title="سبب الحادثة:"></app-mental-state>
-    <button class="action">إعادة تعيين</button>
+    <app-mental-state (value)="state = $event"></app-mental-state>
+    <h3>الوقت التقريبي للحادثة (اختياري):<input type="datetime-local" (change)="populateTime($event)"></h3>
+    <app-mental-state [map]="accidentTypes" title="سبب الحادثة:" (value)="reason = $event"></app-mental-state>
+    <button class="action" (click)="reset()">إعادة تعيين</button>
 </div>

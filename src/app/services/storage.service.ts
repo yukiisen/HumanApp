@@ -1,23 +1,28 @@
 import { Injectable } from '@angular/core';
 import { MentalState } from '../components/helpers/mental-state/mental-state.component';
 
+export type Reason = "watched" | "accident" | "onPurpose";
+
 export interface StorageStructure {
     password: string,
     resets: {
         date: Date,
         time?: Date, 
         state: MentalState,
-        penality: number
+        //penality: number,
+        reason: Reason,
     }[],
-    dailyState: { date: Date, state: MentalState }[],
+    dailyState: { date: Date, state: MentalState, amount: number }[],
     notes: { date: Date, content: string }[]
 }
+
+type ExtractFromArray<T> = T extends (infer K)[]? K : never;
 
 @Injectable({
     providedIn: 'platform'
 })
 export class StorageService {
-    appData!: StorageStructure;
+    private appData!: StorageStructure;
     readonly storeToken = "humanapp";
 
     constructor() {
@@ -47,6 +52,24 @@ export class StorageService {
     getHistory () {
         return this.appData.resets.concat();
     }
+
+    insertDaily (data: ExtractFromArray<StorageStructure["dailyState"]>) {
+        this.appData.dailyState.push(data);
+        this.save();
+    }
+
+    resetTimer (data: ExtractFromArray<StorageStructure["resets"]>) {
+        this.appData.resets.push(data);
+        this.save();
+    }
+
+    getTimer () {
+        return this.appData.resets.concat().pop()!.date;
+    }
+
+    save () {
+        localStorage.setItem(this.storeToken, JSON.stringify(this.appData));
+    }
 }
 
 namespace methods {
@@ -60,9 +83,9 @@ namespace methods {
 
 const DefaultStorage: StorageStructure = {
     password: '',
-    resets: [],
+    resets: [
+        { date: new Date, state: "normal", reason: "accident" }
+    ],
     dailyState: [],
-    notes: [
-        { date: new Date(), content: "" }
-    ]
+    notes: []
 }

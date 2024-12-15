@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { Dialog } from 'src/app/interfaces/dialog';
 import { DialogManagerService } from 'src/app/services/dialogmanager.service';
+import { StorageService } from 'src/app/services/storage.service';
+import { MentalState } from '../../helpers/mental-state/mental-state.component';
 
 @Component({
     selector: 'app-daily-check',
@@ -14,10 +16,10 @@ export class DailyCheckComponent implements Dialog {
     name = 'daily-check';
     visible = false;
     willHide = false;
-    state = '';
+    state!: string;
     amount: number = 5;
 
-    constructor (private Dialogs: DialogManagerService) {
+    constructor (private Dialogs: DialogManagerService, private Storage: StorageService) {
         Dialogs.manager.subscribe((name) => {
             if (name === this.name) this.visible = true;
         });
@@ -40,11 +42,15 @@ export class DailyCheckComponent implements Dialog {
         this.willHide = true;
     }
 
-    state = $event (e: Event) {
+    populateAmount (e: Event) {
         this.amount = +(<{ value: string }><unknown>e.target).value;
     }
 
     saveData () {
-        console.log(this.amount);
+        if (!this.Storage.todayState()) {
+            this.Storage.insertDaily({ state: <MentalState>this.state, amount: this.amount, date: new Date() });
+        }
+
+        this.hostClick();
     }
 }
