@@ -19,8 +19,10 @@ export class ResetComponent implements Dialog {
         Dialogs.manager.subscribe((name) => {
             if (name === this.name) this.visible = true;
         });
+    }
 
-        console.log(Dialogs);
+    ngOnDestroy(): void {
+        this.Dialogs.unsubscribeChild();
     }
 
     hostClick () {

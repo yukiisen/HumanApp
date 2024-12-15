@@ -21,6 +21,10 @@ export class DailyCheckComponent implements Dialog {
         });
     }
 
+    ngOnDestroy(): void {
+        this.Dialogs.unsubscribeChild();
+    }
+
     hostClick(): void {
         if (this.willHide) {
             this.willHide = false;

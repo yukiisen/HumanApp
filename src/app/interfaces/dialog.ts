@@ -1,4 +1,6 @@
-export interface Dialog {
+import { OnDestroy } from "@angular/core"
+
+export interface Dialog extends OnDestroy {
     name: string
     visible: boolean
     hostClick (): void

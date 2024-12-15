@@ -25,4 +25,8 @@ export class AppComponent {
     onCounterReset () {
         this.showDialogue('reset');
     }
+
+    onDailyCheckClick () {
+        this.showDialogue('daily-check');
+    }
 }

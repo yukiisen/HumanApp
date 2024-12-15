@@ -1,7 +1,8 @@
 <section [class]="'dialogs' + (displayDialogue? ' on' : '')">
     <app-reset *ngIf="currentDialog === 'reset'"></app-reset>
+    <app-daily-check *ngIf="currentDialog === 'daily-check'"></app-daily-check>
 </section>
 <section class="dialogshide"></section>
 <app-header></app-header>
 <app-counter></app-counter>
-<app-controls (reset)="onCounterReset()"></app-controls>
+<app-controls (reset)="onCounterReset()" (dailyCheck)="onDailyCheckClick()"></app-controls>
