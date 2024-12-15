@@ -15,6 +15,12 @@ export class ResetComponent implements Dialog {
     name = 'reset';
     willHide = false;
 
+    accidentTypes = {
+        'accident': 'حادثة غير مقصودة',
+        'onPurpose': 'متعمدة',
+        'watched': 'تشمل النظر',
+    };
+
     constructor (private Dialogs: DialogManagerService) {
         Dialogs.manager.subscribe((name) => {
             if (name === this.name) this.visible = true;

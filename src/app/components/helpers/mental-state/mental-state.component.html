@@ -1,4 +1,4 @@
-<h3>يرجى تحديد حالتك النفسية حاليا:</h3>
+<h3>{{ title }}</h3>
 <ul>
     <li *ngFor="let state of mentalStateList; let i = index" [class]="selected == i? 'selected' : ''" (click)="handleClick(state[0])">{{ state[1] }}</li>
 </ul>

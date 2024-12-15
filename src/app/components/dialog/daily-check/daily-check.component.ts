@@ -14,6 +14,8 @@ export class DailyCheckComponent implements Dialog {
     name = 'daily-check';
     visible = false;
     willHide = false;
+    state = '';
+    amount: number = 5;
 
     constructor (private Dialogs: DialogManagerService) {
         Dialogs.manager.subscribe((name) => {
@@ -36,5 +38,13 @@ export class DailyCheckComponent implements Dialog {
 
     divClick(): void {
         this.willHide = true;
+    }
+
+    state = $event (e: Event) {
+        this.amount = +(<{ value: string }><unknown>e.target).value;
+    }
+
+    saveData () {
+        console.log(this.amount);
     }
 }

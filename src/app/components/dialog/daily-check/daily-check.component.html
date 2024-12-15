@@ -1,3 +1,8 @@
 <div class="container" [style.transform]="visible? 'translateY(0%)' : 'translateY(100%)'" (click)="divClick()">
-    <h1>إعادة تعيين العداد</h1>
+    <h1>تسجيل الحالة اليومي</h1>
+    <span>(تساعد هذه البيانات على معرفة اسباب مشكلتك بشكل افضل)</span>
+    <app-mental-state (value)="state = $event"></app-mental-state>
+    <h3>رجاءً قم بتقدير نسبة هذا الشعور:<input type="range" min="0" max="10" (change)="populateAmount($event)"></h3>
+    
+    <button class="action" (click)="saveData()">حفظ</button>
 </div>
