@@ -1,0 +1,21 @@
+@use '../../../styles/variables.scss' as *;
+@use '../../../styles/mixins.scss' as *;
+
+.container {
+    @include dialog;
+
+    h3 {
+        width: 100%;
+        margin-top: 10px;
+
+        input {
+            width: 100%;
+            background-color: $dark;
+            outline: none;
+            border: 1px $accent solid;
+            text-align: center;
+            border-radius: 5px;
+            font-size: 18px;
+        } 
+    }
+}

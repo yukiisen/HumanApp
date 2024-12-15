@@ -24,3 +24,19 @@
         opacity: 0.3;
     }
 }
+
+@mixin dialog {
+    background-color: $dark;
+    width: 100%;
+    height: fit-content;
+    border-top-right-radius: 25px;
+    border-top-left-radius: 25px;
+    @include centered;
+    flex-direction: column;
+    transform: translateY(100%);
+    padding: 3%;
+
+    h1 {
+        margin: 5px 0 10px;
+    }
+}

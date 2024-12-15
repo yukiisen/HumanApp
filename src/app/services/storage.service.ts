@@ -44,6 +44,10 @@ export class StorageService {
         if (sameYear && sameMonth && sameDate) return true;
         else return false;
     }
+
+    getHistory () {
+        return this.appData.resets.concat();
+    }
 }
 
 namespace methods {

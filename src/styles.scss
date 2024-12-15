@@ -8,11 +8,13 @@
     box-sizing: border-box;
     color: $light;
     user-select: none;
+    transition-duration: 300ms;
 }
 
 body {
     direction: rtl;
     background-color: $dark;
+    height: 100vh;
 }
 
 button {
