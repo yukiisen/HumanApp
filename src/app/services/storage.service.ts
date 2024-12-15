@@ -31,6 +31,18 @@ export class StorageService {
         methods.map(this.appData.notes, _ => ({ ..._, date: new Date(_.date) }));
         methods.map(this.appData.dailyState, _ => ({ ..._, date: new Date(_.date) }));
     }
+
+    todayState () {
+        const { date: lastRecord } = this.appData.dailyState[this.appData.dailyState.length - 1];
+        const now = new Date;
+
+        const sameDate = lastRecord.getDate() == now.getDate()
+        const sameYear = lastRecord.getFullYear() === now.getFullYear()
+        const sameMonth = lastRecord.getMonth() === now.getMonth()
+
+        if (sameYear && sameMonth && sameDate) return true;
+        else return false;
+    }
 }
 
 namespace methods {
