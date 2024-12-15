@@ -7,13 +7,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { CounterComponent } from './components/counter/counter.component';
+
+import { ControlsComponent } from './components/controls/controls.component';
+import { ResetComponent } from './components/dialog/reset/reset.component';
+import { MentalStateComponent } from './components/helpers/mental-state/mental-state.component';
 // Pipes
 import { PeriodPipe } from './pipes/period.pipe';
 // Services
 import { StorageService } from './services/storage.service';
-import { ControlsComponent } from './components/controls/controls.component';
-import { ResetComponent } from './components/dialog/reset/reset.component';
-import { MentalStateComponent } from './components/helpers/mental-state/mental-state.component'
+import { DialogManagerService } from './services/dialogmanager.service';
+
 
 @NgModule({
     declarations: [
@@ -31,6 +34,7 @@ import { MentalStateComponent } from './components/helpers/mental-state/mental-s
     ],
     providers: [
         StorageService,
+        DialogManagerService,
         { 
             provide: APP_INITIALIZER, 
             useFactory: (service: StorageService) => { return () => service; }, 

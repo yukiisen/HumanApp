@@ -1,14 +1,4 @@
 <h3>يرجى تحديد حالتك النفسية حاليا:</h3>
 <ul>
-    <li>سعيد</li>
-    <li>طبيعي</li>
-    <li>حزين</li>
-    <li>غاضب</li>
-    <li>مرهق</li>
-    <li>حائر</li>
-    <li>مريض</li>
-    <li>متحمس</li>
-    <li>عير قادر على التفكير</li>
-    <li>مذنب</li>
-    <li>مبتهج</li>
+    <li *ngFor="let state of mentalStateList; let i = index" [class]="selected == i? 'selected' : ''" (click)="handleClick(state[0])">{{ state[1] }}</li>
 </ul>

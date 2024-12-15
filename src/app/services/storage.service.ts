@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
-
-type MentalState = "happy" | "sad" | "guilty" | "normal" | "angry" | "depressed" | "lost";
+import { MentalState } from '../components/helpers/mental-state/mental-state.component';
 
 export interface StorageStructure {
     password: string,

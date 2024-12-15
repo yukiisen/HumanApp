@@ -1,3 +1,5 @@
+@use '../../../styles/variables.scss' as *;
+
 ul {
     list-style-type: none;
     display: flex;
@@ -5,10 +7,16 @@ ul {
     justify-content: center;
 
     li {
-        border: 2px solid white;
+        border: 2px solid lighten($dark, 8);
         padding: 2px 12px;
         margin: 2px;
         border-radius: 3px;
+        background-color: lighten($dark, 2);
+
+        &.selected {
+            border: 2px solid darken($accent, 3);
+            background-color: darken($accent, 17);
+        }
     }
 
     h2 {
