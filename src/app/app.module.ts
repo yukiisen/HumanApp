@@ -10,14 +10,16 @@ import { CounterComponent } from './components/counter/counter.component';
 // Pipes
 import { PeriodPipe } from './pipes/period.pipe';
 // Services
-import { StorageService } from './services/storage.service'
+import { StorageService } from './services/storage.service';
+import { ControlsComponent } from './components/controls/controls.component'
 
 @NgModule({
     declarations: [
         AppComponent,
         HeaderComponent,
         CounterComponent,
-        PeriodPipe
+        PeriodPipe,
+        ControlsComponent
     ],
     imports: [
         BrowserModule,

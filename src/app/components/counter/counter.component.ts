@@ -10,8 +10,6 @@ export class CounterComponent implements OnInit {
     lastEdit: Date = new Date("2024-12-15 00:00");
     interval: number = 0;
 
-    constructor (private storage: StorageService) {}
-
     ngOnInit (): void {
         setInterval(() => { this.interval++ }, 1000);
     }

@@ -33,6 +33,7 @@ export class StorageService {
     }
 
     todayState () {
+        if (this.appData.dailyState.length === 0) return false;
         const { date: lastRecord } = this.appData.dailyState[this.appData.dailyState.length - 1];
         const now = new Date;
 

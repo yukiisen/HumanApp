@@ -20,11 +20,3 @@
         color: $accent;
     }
 }
-
-.controls {
-    @include centered;
-    flex-wrap: wrap;
-    button {
-        width: 80%;
-    }
-}
