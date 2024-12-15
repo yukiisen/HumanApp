@@ -1,4 +1,4 @@
-<div class="container" [style.transform]="visible? 'translateY(0%)' : 'translateY(100%)'">
+<div class="container" [style.transform]="visible? 'translateY(0%)' : 'translateY(100%)'" (click)="divClick()">
     <h1>إعادة تعيين العداد</h1>
     <app-mental-state></app-mental-state>
     <h3>الوقت التقريبي للحادثة (اختياري):<input type="datetime-local"></h3>

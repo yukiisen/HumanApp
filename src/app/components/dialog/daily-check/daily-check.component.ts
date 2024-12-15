@@ -1,29 +1,27 @@
-import { Component, ElementRef, Output, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 import { Dialog } from 'src/app/interfaces/dialog';
 import { DialogManagerService } from 'src/app/services/dialogmanager.service';
 
 @Component({
-    selector: 'app-reset',
-    templateUrl: './reset.component.html',
-    styleUrls: ['./reset.component.scss'],
+    selector: 'app-daily-check',
+    templateUrl: './daily-check.component.html',
+    styleUrls: ['./daily-check.component.scss'],
     host: {
         '(click)': 'hostClick()'
     }
 })
-export class ResetComponent implements Dialog {
+export class DailyCheckComponent implements Dialog {
+    name = 'daily-check';
     visible = false;
-    name = 'reset';
     willHide = false;
 
     constructor (private Dialogs: DialogManagerService) {
         Dialogs.manager.subscribe((name) => {
             if (name === this.name) this.visible = true;
         });
-
-        console.log(Dialogs);
     }
 
-    hostClick () {
+    hostClick(): void {
         if (this.willHide) {
             this.willHide = false;
         } else {
@@ -32,7 +30,7 @@ export class ResetComponent implements Dialog {
         }
     }
 
-    divClick () {
+    divClick(): void {
         this.willHide = true;
     }
 }

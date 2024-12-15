@@ -16,6 +16,7 @@ import { PeriodPipe } from './pipes/period.pipe';
 // Services
 import { StorageService } from './services/storage.service';
 import { DialogManagerService } from './services/dialogmanager.service';
+import { DailyCheckComponent } from './components/dialog/daily-check/daily-check.component';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { DialogManagerService } from './services/dialogmanager.service';
         PeriodPipe,
         ControlsComponent,
         ResetComponent,
-        MentalStateComponent
+        MentalStateComponent,
+        DailyCheckComponent
     ],
     imports: [
         BrowserModule,

@@ -3,9 +3,8 @@
     width: 100vw;
     height: 100vh;
     background-color: black;
-    z-index: 2;
+    z-index: -1;
     opacity: 0;
-    display: none;
     overflow: hidden
 }
 
@@ -14,6 +13,7 @@
     background-color: transparent;
     z-index: 3;
     opacity: 1;
+    display: none;
 
     > * {
         display: flex;
@@ -29,7 +29,7 @@
     }
 
     ~ .dialogshide {
-        display: block;
+        z-index: 2;
         opacity: 0.8;
     }
 

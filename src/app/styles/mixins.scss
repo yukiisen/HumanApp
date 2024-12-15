@@ -39,4 +39,25 @@
     h1 {
         margin: 5px 0 10px;
     }
+
+    h3 {
+        width: 100%;
+        margin-top: 10px;
+
+        input {
+            width: 100%;
+            background-color: $dark;
+            outline: none;
+            border: 1px $accent solid;
+            text-align: center;
+            border-radius: 5px;
+            font-size: 18px;
+        } 
+    }
+
+    button {
+        font-size: 20px;
+        width: 60%;
+        margin-top: 20px;
+    }
 }

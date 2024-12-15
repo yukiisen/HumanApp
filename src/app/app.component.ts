@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { DialogManagerService } from './services/dialogmanager.service';
 
 @Component({
@@ -6,12 +6,23 @@ import { DialogManagerService } from './services/dialogmanager.service';
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
     displayDialogue = false;
+    currentDialog = '';
 
-    constructor (private Dialogs: DialogManagerService) {}
+    constructor (private Dialogs: DialogManagerService) {
+        Dialogs.childCall.subscribe(() => {
+            setTimeout(() => { this.displayDialogue = false; this.currentDialog = '' }, 100);
+        });
+    }
 
-    ngOnInit (): void {
-        
+    showDialogue (name: string) {
+        this.currentDialog = name;
+        this.displayDialogue = true;
+        setTimeout(() => this.Dialogs.display(name), 100);
+    }
+
+    onCounterReset () {
+        this.showDialogue('reset');
     }
 }

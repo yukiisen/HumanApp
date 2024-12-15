@@ -1,6 +1,7 @@
-import { DialogManagerService } from "../services/dialogmanager.service";
-
 export interface Dialog {
-    name: string,
+    name: string
     visible: boolean
+    hostClick (): void
+    divClick (): void
+    willHide: boolean
 }
