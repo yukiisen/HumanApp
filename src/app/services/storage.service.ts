@@ -26,8 +26,7 @@ export class StorageService {
     readonly storeToken = "humanapp";
 
     constructor() {
-        if (!localStorage.getItem(this.storeToken)) 
-            localStorage.setItem(this.storeToken, JSON.stringify(DefaultStorage));
+        if (!localStorage.getItem(this.storeToken)) { localStorage.setItem(this.storeToken, JSON.stringify(DefaultStorage)); }
 
         this.appData = Object.assign({}, JSON.parse(localStorage.getItem(this.storeToken)!));
 
