@@ -2,7 +2,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
     name: 'period',
-    pure: false
+    pure: true
 })
 export class PeriodPipe implements PipeTransform {
     transform(va: any, value: Date) {

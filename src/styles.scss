@@ -1,7 +1,5 @@
 @use "./sass/fonts.scss";
-
-$dark: #151515;
-$light: #e2e1e1;
+@use "./app/styles/variables.scss" as *;
 
 * {
     font-family: PNU;
@@ -9,9 +7,26 @@ $light: #e2e1e1;
     margin: 0;
     box-sizing: border-box;
     color: $light;
+    user-select: none;
 }
 
 body {
     direction: rtl;
     background-color: $dark;
+}
+
+button {
+    background-color: darken($light, 3);
+    color: $dark;
+    border: none;
+    outline: none;
+    font-size: 22px;
+    padding: 5px 15px;
+    border-radius: 5px;
+    margin: 5px;
+
+    &.action {
+        background-color: darken($accent, 20);
+        color: $light;
+    }
 }

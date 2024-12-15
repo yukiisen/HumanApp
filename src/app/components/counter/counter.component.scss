@@ -6,9 +6,10 @@
     border-radius: 50%;
     aspect-ratio: 1/1;
 
-    margin: 8% { top: 0px };
+    margin: 10% { top: 0px };
 
     @include centered;
+    @include shiny($accent, 50%);
     flex-direction: column;
 
     h1:first-child {
@@ -17,5 +18,13 @@
 
     h1:last-child {
         color: $accent;
+    }
+}
+
+.controls {
+    @include centered;
+    flex-wrap: wrap;
+    button {
+        width: 80%;
     }
 }

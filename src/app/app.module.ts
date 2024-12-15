@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, APP_INITIALIZER } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -23,7 +23,15 @@ import { StorageService } from './services/storage.service'
         BrowserModule,
         AppRoutingModule
     ],
-    providers: [ StorageService ],
+    providers: [
+        StorageService,
+        { 
+            provide: APP_INITIALIZER, 
+            useFactory: (service: StorageService) => { return () => service; }, 
+            deps: [ StorageService ], 
+            multi: true 
+        }
+    ],
     bootstrap: [ AppComponent ]
 })
 export class AppModule { }
