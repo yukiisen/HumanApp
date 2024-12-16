@@ -1,6 +1,10 @@
-# Default
+# About
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.16.
+There's nothing special with this project, I made it for a one time use.
+You shouldn't encounter eny issues..
+
+It's my first time with angular BTW :)
 
 ## Development server
 
